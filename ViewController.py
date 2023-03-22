@@ -62,4 +62,7 @@ class ViewController:
             next_tick = 30 - (end_time - start_time)
             if next_tick < 0:
                 next_tick = 0
+            end_time = time_ns() // NS_TO_MS
+            timediff = (end_time - start_time // NS_TO_MS)            
+            print("FRAME RATE:" +  str(1000 / timediff))
             self.screen.ontimer(self.tick, next_tick)
